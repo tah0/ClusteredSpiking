@@ -346,8 +346,7 @@ plot!(projplot_ei, projpts[1,:], projpts[2,:],  color = :black)
 
 
 iter = 313
-brpo_top.param[iter]
-mixed_cycle = get_periodic_orbit(brpo_top, iter)
+mixed_cycle = get_periodic_orbit(brpo_top_back, iter)
 plot(mixed_cycle, palette = palette, legend=false, size = (200, 150),  ylimits = (0,1))
 Plots.xlabel!("Time")
 Plots.ylabel!("Firing rate")
@@ -410,8 +409,8 @@ savefig("../results/plots/quasiperiodic_proj.pdf")
 stab_list = [] 
 tau_Is = 1:.001:3
 for tau_I in tau_Is
-	p = (wEE_self =1.5, wEE = .75 , wEI  = -2.25, wIE = 2.0, wII = -2.0, tau_E = 1.0, tau_I = tau_I, b = 1.0, a = 0.0)
-	eigs = eigs_fp(p)
+	pars = (wEE_self =1.5, wEE = .75 , wEI  = -2.25, wIE = 2.0, wII = -2.0, tau_E = 1.0, tau_I = tau_I, b = 1.0, a = 0.0)
+	eigs = eigs_fp(pars)
 	stab = minimum(real(eigs.values))
 	push!(stab_list, stab)
 end

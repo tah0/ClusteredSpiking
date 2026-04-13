@@ -23,7 +23,7 @@ par_cycle = (wEE_self =1.5, wEE = .75 , wEI  = -1.5, wIE = 2.0, wII = -1.0, tau_
 
 
 recordFromSolution(x, p; k...) = (u1 = x[1], u2 = x[2])
-
+z0 = [0.0, 0.0]
 prob = BifurcationProblem(cycle_2!, z0, par_cycle,
 # specify the continuation parameter
 (@optic _.tau_I), record_from_solution = recordFromSolution)
