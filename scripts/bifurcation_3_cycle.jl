@@ -300,7 +300,7 @@ brpo_cycle.param[1]
 projplot_ei = plot(size = (150, 150), legend = false)
 projplot_ctln = plot(size = (150, 150), legend = false)
 
-plot(ctln_cycle, palette = palette, legend = false, size = (200, 150),  ylimits = (0,1))
+plot(ctln_cycle, palette = pal, legend = false, size = (200, 150),  ylimits = (0,1))
 Plots.xlabel!("Time")
 Plots.ylabel!("Firing rate")
 savefig("../results/plots/inhib_fast_ctln.pdf")
@@ -322,7 +322,7 @@ savefig("../results/plots/inhib_equal_ctln.pdf")
 
 ctln_cycle = get_periodic_orbit(brpo_cycle,439)
 brpo_cycle.param[439]
-plot(ctln_cycle, palette = palette, legend=false, size = (200, 150),  ylimits = (0,1))
+plot(ctln_cycle, palette = pal, legend=false, size = (200, 150),  ylimits = (0,1))
 Plots.xlabel!("Time")
 Plots.ylabel!("Firing rate")
 savefig("../results/plots/e_i_3_ctln.pdf")
@@ -334,7 +334,7 @@ plot!(projplot_ei, projpts[1,:], projpts[2,:], color = :red)
 
 ei_cycle = get_periodic_orbit(brpo_ei, 202)
 brpo_ei.param[202]
-plot(ei_cycle, palette = palette, legend=false, size = (200, 150),  ylimits = (0,1))
+plot(ei_cycle, palette = pal, legend=false, size = (200, 150),  ylimits = (0,1))
 Plots.xlabel!("Time")
 Plots.ylabel!("Firing rate")
 savefig("../results/plots/e_i_3.pdf")
@@ -347,7 +347,7 @@ plot!(projplot_ei, projpts[1,:], projpts[2,:],  color = :black)
 
 iter = 313
 mixed_cycle = get_periodic_orbit(brpo_top_back, iter)
-plot(mixed_cycle, palette = palette, legend=false, size = (200, 150),  ylimits = (0,1))
+plot(mixed_cycle, palette = pal, legend=false, size = (200, 150),  ylimits = (0,1))
 Plots.xlabel!("Time")
 Plots.ylabel!("Firing rate")
 savefig("../results/plots/mixed_cycle.pdf")
