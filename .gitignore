@@ -1,0 +1,6 @@
+# Results
+results/
+
+# Logs
+logs/*
+!logs/.gitkeep
