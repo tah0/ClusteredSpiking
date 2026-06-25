@@ -24,6 +24,6 @@ export tln_function, solve_TLN, tln_function_inhib, solve_TLN_inhib,
        pop_rates, mean_by_pop, fixpts,
        W_sig, b_sig, switch_times, v_to_r, r_to_v, filter_input
 
-include("csn_ctln.jl")
+include(joinpath(@__DIR__, "csn_ctln.jl"))
 
 end # module ClusteredSpiking
