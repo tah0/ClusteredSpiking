@@ -6,7 +6,7 @@
 #   - Saves a graph connectivity plot and a spike raster to results/plots/
 
 using Compose, Random, CSV, DelimitedFiles
-include("../src/csn_ctln.jl")
+using ClusteredSpiking
 
 mkpath("../results/plots")
 mkpath("../results/data")

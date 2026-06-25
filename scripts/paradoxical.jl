@@ -1,7 +1,7 @@
 using MultivariateStats
 
 
-include("../src/csn_ctln.jl")
+using ClusteredSpiking
 default(titlefont = (7, "helvetica"), legendfontsize = 6, guidefont = (6, "helvetica"), xtickfont = (6, "helvetica"), ytickfont = (6, "helvetica"), grid = false, fontfamily = "helvetica")
 
 

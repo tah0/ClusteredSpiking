@@ -1,3 +1,5 @@
+module ClusteredSpiking
+
 using DifferentialEquations
 using LinearAlgebra
 using Plots
@@ -11,8 +13,16 @@ using Plots.PlotMeasures
 using StatsBase
 using ProgressMeter
 using Combinatorics
-using DataFrames 
+using DataFrames
 using StatsPlots
+
+export tln_function, solve_TLN, tln_function_inhib, solve_TLN_inhib,
+       write_sa, graph_to_weights, graph_to_weights_inhib,
+       plot_sol, n_digits, make_names, running_average,
+       graph_plot, graph_to_plot, random_from_sA, plot_sol_inhib,
+       sim_tln_spiking, sim_v_model_spiking,
+       pop_rates, mean_by_pop, fixpts,
+       W_sig, b_sig, switch_times, v_to_r, r_to_v, filter_input
 
 function tln_function(W, b; tau = 1,  stimfunction)
     function update!(du, u, p, t)
@@ -508,3 +518,5 @@ function filter_input(tau, b, s, T)
     end
     return result
 end
+
+end # module ClusteredSpiking
