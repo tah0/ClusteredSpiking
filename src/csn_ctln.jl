@@ -306,7 +306,7 @@ function sim_tln_spiking(W, b, labels; x0 = rand(size(W, 1)), T_max = 100, dt = 
         input .+= stimfunction(t*dt)
         if spk_ind < maxspikes
             for neuron in unique(labels)
-                pop_rates[neuron, t] = sum(X_t[ids .== neuron])/(sum(ids.==neuron)) #just a record, does not feed back in anywhere 
+                pop_rates[neuron, t] = sum(X_t[labels .== neuron])/(sum(labels.==neuron)) #just a record, does not feed back in anywhere 
             end
             if t >= T_s + 2
                 dx_dt = (1 ./tau).*( -X_t .+  max.(W * sum(spikes[:, :], dims = 2)/tau_S .+ input ,0)) #spikes feed back 
@@ -354,7 +354,7 @@ function sim_v_model_spiking(W, b, labels; v0 = rand(size(W, 1)), T_max = 100, d
         input .+= stimfunction(t*dt)
         if spk_ind < maxspikes
             for neuron in unique(labels)
-                pop_V[neuron, t] = sum(V_t[ids .== neuron])/(sum(ids.==neuron)) #just a record, does not feed back in anywhere 
+                pop_V[neuron, t] = sum(V_t[labels .== neuron])/(sum(labels.==neuron)) #just a record, does not feed back in anywhere
             end
             dv_dt = (1 ./tau).*( -V_t .+  W * (spikes/dt) + input) #spikes feed back 
             V_t.= V_t .+ dv_dt*dt
